@@ -11,7 +11,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Post;
 
-class EvenetCreatePost
+class EvenetCreatePost implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -31,8 +31,14 @@ class EvenetCreatePost
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */
+    // public function broadcastOn()
+    // {
+    //     return new PrivateChannel('channel-name');
+    // }
+
     public function broadcastOn()
     {
-        return new PrivateChannel('channel-name');
+        //para uso publico
+        return new Channel('post-created');
     }
 }
