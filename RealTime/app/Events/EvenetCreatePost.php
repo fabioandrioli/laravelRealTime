@@ -15,7 +15,7 @@ class EvenetCreatePost
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    private $post;
+    public $post;
     /**
      * Create a new event instance.
      *
