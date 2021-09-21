@@ -4,3 +4,4 @@ window.Echo.channel('laravelrealtime_database_post-created')
                 console.log(e.post);
                 console.log("ola");
             })
+//
