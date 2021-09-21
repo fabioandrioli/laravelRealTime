@@ -25,8 +25,6 @@ Route::get('/create-post', function () {
     $post = Post::first();
     event(new EventCreatePost($post));
 
-    
-
-    return "Criado com sucesso";
+    return view("teste");
 });
 
