@@ -18,11 +18,13 @@ use Illuminate\Support\Str;
 */
 
 Route::get('/', function () {
+    $post = Post::first();
+    event(new EvenetCreatePost($post));
     return view('welcome');
 });
 
 Route::get('/create-post', function () {
-    $user = User::first();
+    //$user = User::first();
     // $post = $user->posts()->create([
     //     'title' => Str::random(150),
     //     'body' => Str::random(400),
@@ -32,6 +34,6 @@ Route::get('/create-post', function () {
 
     
 
-    return "Criado com sucesso";
+    return "Criado com sucesso {$post}";
 });
 

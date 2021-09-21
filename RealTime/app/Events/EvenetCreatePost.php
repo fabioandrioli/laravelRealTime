@@ -8,6 +8,7 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Post;
 
@@ -50,5 +51,10 @@ class EvenetCreatePost implements ShouldBroadcast
     //             'date' => Carbon::parse($this->post->created_at)->format('d/m/Y'),
     //         ]
     //     ];
+    // }
+
+    // public function broadcastAs()
+    // {
+    //     return 'testing';
     // }
 }
