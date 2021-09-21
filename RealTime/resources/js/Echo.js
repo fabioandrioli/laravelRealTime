@@ -1,6 +1,7 @@
+import Vue from 'vue'
+
 window.Echo.channel('laravelrealtime_database_post-created')
             .listen('.EvenetCreatePost',(e) => {
-                console.log(e);
-                console.log(e.post);
+                Vue.$vToastify.success(`Título do post`, 'Novo Post')
             })
 console.log("teste fora do window Echo -");
