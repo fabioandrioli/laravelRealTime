@@ -2141,10 +2141,12 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 
-window.Echo.channel('laravelrealtime_database_post-created').listen('.EvenetCreatePost', function (e) {
+window.Echo.channel('laravel_database_postCreated').listen('EventCreatePost', function (e) {
   vue__WEBPACK_IMPORTED_MODULE_0__["default"].$vToastify.success("T\xEDtulo do post", 'Novo Post');
+  console.log(e.post);
+  console.log("teste");
 });
-console.log("teste fora do window Echo -");
+console.log("Teste fora do window Echo");
 
 /***/ }),
 

@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Post;
-use App\Events\EvenetCreatePost;
+use App\Events\EventCreatePost;
 use Illuminate\Support\Str;
+use App\Http\Controllers\SiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,23 +18,15 @@ use Illuminate\Support\Str;
 |
 */
 
-Route::get('/', function () {
-    $post = Post::first();
-    event(new EvenetCreatePost($post));
-    return view('welcome');
-});
+Route::get('/',[SiteController::class,'index']);
 
 Route::get('/create-post', function () {
-    //$user = User::first();
-    // $post = $user->posts()->create([
-    //     'title' => Str::random(150),
-    //     'body' => Str::random(400),
-    // ]);
+
     $post = Post::first();
-    event(new EvenetCreatePost($post));
+    event(new EventCreatePost($post));
 
     
 
-    return "Criado com sucesso {$post}";
+    return "Criado com sucesso";
 });
 

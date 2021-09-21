@@ -12,7 +12,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Post;
 
-class EvenetCreatePost implements ShouldBroadcast
+class EventCreatePost implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -40,7 +40,7 @@ class EvenetCreatePost implements ShouldBroadcast
     public function broadcastOn()
     {
         //para uso publico
-        return new Channel('post-created');
+        return new Channel('postCreated');
     }
 
     // public function broadcastWith()

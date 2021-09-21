@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Events\EvenetCreatePost;
+use App\Events\EventCreatePost;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -24,8 +24,9 @@ class NotifyNewPostCreate
      * @param  EvenetCreatePost  $event
      * @return void
      */
-    public function handle(EvenetCreatePost $event)
+    public function handle(EventCreatePost $event)
     {
+       // return $event->post;
          //dd($event->post);
     }
 }
