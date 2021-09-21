@@ -116,7 +116,6 @@ return [
     | such as APC or Memcached. Laravel makes it easy to dig right in.
     |
     */
-
     'redis' => [
 
         'client' => env('REDIS_CLIENT', 'phpredis'),
@@ -127,7 +126,7 @@ return [
         ],
 
         'default' => [
-            'url' => 'tcp://127.0.0.1:6379?database=0',
+            'url' => env('REDIS_URL'),
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', '6379'),
@@ -135,7 +134,7 @@ return [
         ],
 
         'cache' => [
-            'url' => 'tls://user:password@127.0.0.1:6380?database=1',
+            'url' => env('REDIS_URL'),
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', '6379'),

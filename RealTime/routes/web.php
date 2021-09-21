@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Models\Post;
+use App\Events\EvenetCreatePost;
 use Illuminate\Support\Str;
-use App\Event\EvenetCreatePost;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,12 +23,14 @@ Route::get('/', function () {
 
 Route::get('/create-post', function () {
     $user = User::first();
-    $post = $user->posts()->create([
-        'title' => Str::random(150),
-        'body' => Str::random(400),
-    ]);
+    // $post = $user->posts()->create([
+    //     'title' => Str::random(150),
+    //     'body' => Str::random(400),
+    // ]);
+    $post = Post::first();
+    event(new EvenetCreatePost($post));
 
-    event(new EvenetCreatePost());
+    
 
     return "Criado com sucesso";
 });

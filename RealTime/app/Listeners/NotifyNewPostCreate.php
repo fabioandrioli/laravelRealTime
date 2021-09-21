@@ -26,6 +26,6 @@ class NotifyNewPostCreate
      */
     public function handle(EvenetCreatePost $event)
     {
-        dd($event->post);
+         //dd($event->post);
     }
 }
